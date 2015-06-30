@@ -1,0 +1,7 @@
+{
+  "up": [
+    "addcolumn User age:int",
+    "addcolumn User nickname:String",
+    "renamecolumn User nickname name"
+  ]
+}
