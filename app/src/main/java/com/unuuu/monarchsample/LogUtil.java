@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
  */
 public class LogUtil {
 
-    private final static String TAG = "Amigo";
+    private final static String TAG = "MONARCH";
 
     public static void d(String message) {
         if (BuildConfig.DEBUG) {

@@ -13,12 +13,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-//        realm.beginTransaction();
-//        User user = realm.createObject(User.class);
-//        user.setUserId(123);
-//        realm.commitTransaction();
-    }
+     }
 
 
     @Override
