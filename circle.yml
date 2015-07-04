@@ -2,8 +2,8 @@ general:
  branches:
   only:
    - master
-  artifacts:
-   - "app/build/reports/tests/debug/index.html"
+ artifacts:
+  - "app/build/reports/tests/debug/index.html"
 
 machine:
  java:
