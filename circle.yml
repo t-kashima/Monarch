@@ -28,4 +28,4 @@ deployment:
  master:
   branch: master
   commands:
-   - ./deploy.sh
+   - ./gradlew assembleRelease
