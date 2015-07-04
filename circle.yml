@@ -3,7 +3,7 @@ general:
   only:
    - master
  artifacts:
-  - "app/build/reports/tests/debug/index.html"
+  - "app/build/reports/tests/debug/*"
 
 machine:
  java:
