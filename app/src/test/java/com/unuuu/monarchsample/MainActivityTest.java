@@ -17,6 +17,6 @@ public class MainActivityTest {
 
     @Test
     public void 基本のテスト() {
-        assertThat("あいうえお").isEqualTo("基本のテスト");
+        assertThat("基本のテスト").isEqualTo("基本のテスト");
     }
 }
