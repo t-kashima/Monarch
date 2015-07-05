@@ -6,12 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.io.File;
-import java.util.List;
+import java.util.HashMap;
 
 import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import io.realm.RealmMigration;
-import io.realm.exceptions.RealmMigrationNeededException;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -23,20 +22,27 @@ public class MainFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
-        String path = FileUtil.getExternalStorage(getActivity().getApplicationContext(), "", false) + File.separator + "monarch.realm";
+        final int schemaVersion = 1436076736;
+        RealmConfiguration config = new RealmConfiguration.Builder(FileUtil.getExternalStorage(getActivity().getApplicationContext(), "", false))
+                .name("monarch.realm")
+                .schemaVersion(schemaVersion)
+                .migration(new RealmMigration() {
+                    @Override
+                    public long execute(Realm realm, long version) {
+                        HashMap<String, Class> classMap = new HashMap<String, Class>() {
+                            {
+                                put("User", User.class);
+                            }
+                        };
+                        return Monarch.migration(getActivity().getApplicationContext(), realm, version, schemaVersion, classMap);
+                    }
+                })
+                .build();
+        Realm realm = Realm.getInstance(config);
 
-        Realm realm = null;
-        try {
-            realm = Realm.getInstance(FileUtil.getExternalStorage(getActivity().getApplicationContext(), "", false), "monarch.realm");
-        } catch (RealmMigrationNeededException e) {
-            Realm.migrateRealmAtPath(path, new RealmMigration() {
-                @Override
-                public long execute(Realm realm, long version) {
-                    return Monarch.migration(getActivity().getApplicationContext(), realm, version);
-                }
-            });
-            realm = Realm.getInstance(FileUtil.getExternalStorage(getActivity().getApplicationContext(), "", false), "monarch.realm");
-        }
+//        Realm realm = Realm.getInstance(getActivity().getApplicationContext());
+
+        LogUtil.d(realm.getPath());
 
         {
             realm.beginTransaction();
@@ -50,12 +56,6 @@ public class MainFragment extends Fragment {
             if (user != null) {
                 LogUtil.d("ユーザが見つかったよ: " + user.getUserId());
             }
-        }
-
-        List<String> scriptList = Monarch.getMigrationScript(getActivity().getApplicationContext(), "migration");
-        for (int i = 0; i < scriptList.size(); i++) {
-            String script = scriptList.get(i);
-            LogUtil.d(script);
         }
 
         return rootView;

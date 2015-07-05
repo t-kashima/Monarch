@@ -1,5 +1,6 @@
 {
   "up": [
+    "addcolumn User age:int",
     "addcolumn User device:int"
   ]
 }

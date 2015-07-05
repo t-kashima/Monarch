@@ -8,7 +8,7 @@ import io.realm.RealmObject;
 public class User extends RealmObject {
     private int userId;
     private int age;
-    private int device;
+    private int deviceCount;
 
     public int getUserId() {
         return userId;
@@ -25,11 +25,11 @@ public class User extends RealmObject {
         this.age = age;
     }
 
-    public int getDevice() {
-        return device;
+    public int getDeviceCount() {
+        return deviceCount;
     }
 
-    public void setDevice(int device) {
-        this.device = device;
+    public void setDeviceCount(int deviceCount) {
+        this.deviceCount = deviceCount;
     }
 }
