@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.unuuu.monarch.Monarch;
+
 import java.util.HashMap;
 
 import io.realm.Realm;
@@ -39,8 +41,6 @@ public class MainFragment extends Fragment {
                 })
                 .build();
         Realm realm = Realm.getInstance(config);
-
-//        Realm realm = Realm.getInstance(getActivity().getApplicationContext());
 
         LogUtil.d(realm.getPath());
 

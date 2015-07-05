@@ -1,4 +1,4 @@
-package com.unuuu.monarchsample;
+package com.unuuu.monarch;
 
 import java.util.ArrayList;
 import java.util.List;

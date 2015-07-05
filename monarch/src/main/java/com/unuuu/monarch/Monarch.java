@@ -1,7 +1,8 @@
-package com.unuuu.monarchsample;
+package com.unuuu.monarch;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.util.Log;
 
 import com.google.gson.Gson;
 
@@ -22,6 +23,9 @@ import io.realm.internal.TableOrView;
  * Created by kashima on 15/07/02.
  */
 public class Monarch {
+    /** Monarchのタグ */
+    private static final String TAG = "Monarch";
+
     /** 文字列のクラスを実態のクラスと紐づけるマップ */
     private static HashMap<String, Class> mClassMap;
 
@@ -38,7 +42,7 @@ public class Monarch {
      * @return マイグレーション後のバージョン
      */
     public static long migration(Context context, Realm realm, long version, int schemaVersion, HashMap classMap) {
-        LogUtil.d("バージョンアップ前: " + version);
+        Log.d(TAG, "before: " + version);
 
         // テーブル名とクラスの対応表
         mClassMap = classMap;
@@ -62,7 +66,7 @@ public class Monarch {
                     // 実行に失敗した時
                     if (!execCommand(realm, command)) {
                         // 終了する
-                        LogUtil.e("コマンドの実行に失敗しました: " + scriptVersion);
+                        Log.e(TAG, "failed migration: " + scriptVersion);
                         return version;
                     }
                 }
@@ -71,7 +75,7 @@ public class Monarch {
                 version = scriptVersion;
             }
         }
-        LogUtil.d("バージョンアップ後: " + version);
+        Log.d(TAG, "after: " + version);
 
         return version;
     }
@@ -99,7 +103,7 @@ public class Monarch {
         // スペースで区切る
         List<String> list = Arrays.asList(command.split(" "));
         String directive = list.get(0);
-        LogUtil.d("コマンド: " + command);
+        Log.d(TAG, "command: " + command);
         // カラム追加の時
         if (directive.equals("addcolumn")) {
             return execAddColumn(realm, command);
@@ -123,7 +127,7 @@ public class Monarch {
         List<String> list = Arrays.asList(command.split(" "));
         // コマンドの数が少ない時は終わり
         if (3 > list.size()) {
-            LogUtil.d("コマンドのカラム数が正しくありません");
+            Log.d(TAG, "command is incorrect");
             return false;
         }
         String tableName = list.get(1);
@@ -148,7 +152,7 @@ public class Monarch {
         List<String> list = Arrays.asList(command.split(" "));
         // コマンドの数が少ない時は終わり
         if (2 > list.size()) {
-            LogUtil.d("コマンドのカラム数が正しくありません");
+            Log.d(TAG, "command is incorrect");
             return false;
         }
         String tableName = list.get(1);
@@ -177,7 +181,7 @@ public class Monarch {
         List<String> list = Arrays.asList(command.split(" "));
         // コマンドの数が少ない時は終わり
         if (3 > list.size()) {
-            LogUtil.d("コマンドのカラム数が正しくありません");
+            Log.d(TAG, "command is incorrect");
             return false;
         }
         String tableName = list.get(1);
