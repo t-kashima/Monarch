@@ -1,5 +1,29 @@
 apply plugin: 'com.android.library'
 
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'Monarch'
+
+    publishedGroupId = 'com.unuuu'
+    libraryName = 'Monarch'
+    artifact = 'monarch'
+
+    libraryDescription = 'A wrapper for Realm migration on Android'
+
+    siteUrl = 'https://github.com/t-kashima/Monarch'
+    gitUrl = 'https://github.com/t-kashima/Monarch.git'
+
+    libraryVersion = '0.0.1'
+
+    developerId = 't-kashima'
+    developerName = 'KASHIMA Takumi'
+    developerEmail = 'kodokurider@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
 android {
     compileSdkVersion 22
     buildToolsVersion "22.0.1"
