@@ -1,4 +1,4 @@
-package com.unuuu.monarchsample;
+package com.unuuu.monarch.sample;
 
 import io.realm.RealmObject;
 

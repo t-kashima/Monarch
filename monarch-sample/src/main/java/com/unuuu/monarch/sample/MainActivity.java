@@ -1,11 +1,9 @@
-package com.unuuu.monarchsample;
+package com.unuuu.monarch.sample;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import io.realm.Realm;
 
 public class MainActivity extends AppCompatActivity {
 

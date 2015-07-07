@@ -48,3 +48,6 @@ dependencies {
     compile 'com.google.code.gson:gson:2.3.1'
     compile 'io.realm:realm-android:0.81.1'
 }
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'

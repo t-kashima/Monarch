@@ -1,1 +1,1 @@
-include ':app', ':monarch'
+include ':monarch-sample', ':monarch'

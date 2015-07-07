@@ -1,6 +1,8 @@
-package com.unuuu.monarchsample;
+package com.unuuu.monarch.sample;
 
 import android.util.Log;
+
+import com.unuuu.monarch.sample.BuildConfig;
 
 import java.util.regex.Pattern;
 

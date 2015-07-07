@@ -1,4 +1,4 @@
-package com.unuuu.monarchsample;
+package com.unuuu.monarch.sample;
 
 import android.annotation.TargetApi;
 import android.content.ContentResolver;
