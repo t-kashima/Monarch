@@ -1,4 +1,4 @@
-package com.unuuu.monarchsample;
+package com.unuuu.monarch.sample;
 
 import org.junit.Before;
 import org.junit.Test;
