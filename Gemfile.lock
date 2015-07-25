@@ -1,0 +1,19 @@
+GIT
+  remote: git@github.com:t-kashima/MonarchMigration.git
+  revision: 36aca3451d38339929b716e8185be02a5046627b
+  specs:
+    monarch_migration (0.1.0)
+      thor
+
+GEM
+  specs:
+    thor (0.19.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  monarch_migration!
+
+BUNDLED WITH
+   1.10.5
